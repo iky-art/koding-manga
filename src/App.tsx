@@ -1,32 +1,27 @@
-import { CHAPTERS } from "./data/chapters";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import ContinueReading from "./components/ContinueReading";
+import StatsGrid from "./components/StatsGrid";
 
 export default function App() {
   return (
-    <main style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h1>📖 Koding Manga</h1>
-      <p>Belajar coding dari dasar hingga master.</p>
+    <main className="min-h-screen bg-slate-100">
+      <div className="mx-auto max-w-md space-y-6 p-4">
 
-      <div style={{ display: "grid", gap: "12px", marginTop: "20px" }}>
-        {CHAPTERS.map((chapter) => (
-          <div
-            key={chapter.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "10px",
-              padding: "12px",
-            }}
-          >
-            <h2>
-              {chapter.cover_emoji} Bab {chapter.chapter_num}
-            </h2>
-            <h3>{chapter.title}</h3>
-            <p>{chapter.subtitle}</p>
-            <small>
-              {chapter.language} • {chapter.difficulty} •{" "}
-              {chapter.read_time_min} menit
-            </small>
-          </div>
-        ))}
+        <Header username="Risky" />
+
+        <SearchBar />
+
+        <ContinueReading />
+
+        <section>
+          <h2 className="mb-3 text-xl font-bold">
+            Statistik
+          </h2>
+
+          <StatsGrid />
+        </section>
+
       </div>
     </main>
   );
